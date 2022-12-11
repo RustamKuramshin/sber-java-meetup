@@ -24,6 +24,9 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("io.micrometer:micrometer-registry-prometheus")
+
+	implementation(project(":commons"))
+
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
