@@ -29,7 +29,6 @@ public class UpstreamClients {
     /**
      * Получение подрядчика по uuid
      */
-    @Async
     public ContractorDto getContractorById(UUID uuid) {
         return restTemplate.getForObject("/contractors/{uuid}", ContractorDto.class, uuid);
     }
@@ -37,7 +36,6 @@ public class UpstreamClients {
     /**
      * Получение проекта по uuid
      */
-    @Async
     public ProjectDto getProjectById(UUID uuid) {
         return restTemplate.getForObject("/projects/{uuid}", ProjectDto.class, uuid);
     }
