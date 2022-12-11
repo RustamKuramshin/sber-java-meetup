@@ -1,13 +1,13 @@
-GET /companies/ad084d60-04d6-41c6-a157-f7ebceeeae3c
+GET /api/v1/companies/ad084d60-04d6-41c6-a157-f7ebceeeae3c
 Host: localhost:19966
 Accept: application/json
 
 ###
-GET /projects/28000157-ebbb-4cb9-8b3d-3882d069836f
+GET /api/v1/projects/ad084d60-04d6-41c6-a157-f7ebceeeae3c
 Host: localhost:19966
 Accept: application/json
 
 ###
-GET /contractors/a21b4c7e-0388-43a2-8257-209ee4d17cf0
+GET /api/v1/contractors/ad084d60-04d6-41c6-a157-f7ebceeeae3c
 Host: localhost:19966
 Accept: application/json

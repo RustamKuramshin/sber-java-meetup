@@ -3,7 +3,7 @@
     {
       "request": {
         "method": "GET",
-        "url": "/companies/ad084d60-04d6-41c6-a157-f7ebceeeae3c"
+        "url": "/api/v1/companies/ad084d60-04d6-41c6-a157-f7ebceeeae3c"
       },
       "response": {
         "status": 200,
@@ -17,11 +17,11 @@
     {
       "request": {
         "method": "GET",
-        "url": "/projects/28000157-ebbb-4cb9-8b3d-3882d069836f"
+        "url": "/api/v1/projects/ad084d60-04d6-41c6-a157-f7ebceeeae3c"
       },
       "response": {
         "status": 200,
-        "body": "{\n  \"uuid\": \"28000157-ebbb-4cb9-8b3d-3882d069836f\",\n  \"location\": \"Laid Street 4228, Mcchord Afb, Bermuda, 269114\",\n  \"cost\": 105868621,\n  \"type\": \"BUILDING\"\n}",
+        "body": "{\n  \"uuid\": \"ad084d60-04d6-41c6-a157-f7ebceeeae3c\",\n  \"location\": \"Laid Street 4228, Mcchord Afb, Bermuda, 269114\",\n  \"cost\": 105868621,\n  \"type\": \"BUILDING\"\n}",
         "headers": {
           "Content-Type": "application/json"
         },
@@ -31,11 +31,11 @@
     {
       "request": {
         "method": "GET",
-        "url": "/contractors/a21b4c7e-0388-43a2-8257-209ee4d17cf0"
+        "url": "/api/v1/contractors/ad084d60-04d6-41c6-a157-f7ebceeeae3c"
       },
       "response": {
         "status": 200,
-        "body": "{\n  \"uuid\": \"a21b4c7e-0388-43a2-8257-209ee4d17cf0\",\n  \"name\": \"Tyjuan Heiman\",\n  \"address\": \"Viking Road 5577, Plato, Cuba, 321241\",\n  \"numberOfEmployees\": 374 \n}",
+        "body": "{\n  \"uuid\": \"ad084d60-04d6-41c6-a157-f7ebceeeae3c\",\n  \"name\": \"Tyjuan Heiman\",\n  \"address\": \"Viking Road 5577, Plato, Cuba, 321241\",\n  \"numberOfEmployees\": 374 \n}",
         "headers": {
           "Content-Type": "application/json"
         },
