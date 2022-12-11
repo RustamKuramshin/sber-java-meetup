@@ -1,0 +1,1 @@
+rootProject.name = "sber-java-meetup"
