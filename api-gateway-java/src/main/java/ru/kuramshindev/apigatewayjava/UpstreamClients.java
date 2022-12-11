@@ -19,6 +19,11 @@ public class UpstreamClients {
 
     private final RestTemplate restTemplate;
 
+    /**
+     * Получение компании по uuid
+     * @param uuid
+     * @return
+     */
     @Async
     public CompletableFuture<CompanyDto> getCompanyById(UUID uuid) {
 
@@ -27,6 +32,11 @@ public class UpstreamClients {
         return CompletableFuture.completedFuture(company);
     }
 
+    /**
+     * Получение подрядчика по uuid
+     * @param uuid
+     * @return
+     */
     @Async
     public CompletableFuture<ContractorDto> getContractorById(UUID uuid) {
 
@@ -35,6 +45,11 @@ public class UpstreamClients {
         return CompletableFuture.completedFuture(contractor);
     }
 
+    /**
+     * Получение проекта по uuid
+     * @param uuid
+     * @return
+     */
     @Async
     public CompletableFuture<ProjectDto> getProjectById(UUID uuid) {
 
