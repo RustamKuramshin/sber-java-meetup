@@ -21,6 +21,29 @@ public class GatewayServiceAsyncImpl implements GatewayService {
     @Override
     public Mono<ApiGatewayDto> getContractById(UUID uuid) {
 
+        //        var apiGatewayDtoBuilder = ApiGatewayDto.builder();
+        //
+        //        // Получение компании
+        //        return upstreamAsyncClients.getCompanyByIdAsync(uuid)
+        //                .flatMap(company -> {
+        //                    apiGatewayDtoBuilder.company(company);
+        //
+        //                    // Получение подрядчика
+        //                    return upstreamAsyncClients.getContractorByIdAsync(uuid);
+        //                })
+        //                .flatMap(contractor -> {
+        //                    apiGatewayDtoBuilder.contractor(contractor);
+        //
+        //                    // Получение проекта
+        //                    return upstreamAsyncClients.getProjectByIdAsync(uuid);
+        //                })
+        //                .flatMap(project -> {
+        //                    apiGatewayDtoBuilder.project(project);
+        //
+        //                    // Собираем ответ
+        //                    return Mono.just(apiGatewayDtoBuilder.build());
+        //                });
+
         // Получение компании
         Mono<CompanyDto> company = upstreamAsyncClients.getCompanyByIdAsync(uuid);
 

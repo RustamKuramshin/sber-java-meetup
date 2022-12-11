@@ -22,6 +22,27 @@ public class GatewayServiceAsyncImpl implements GatewayService {
     @Override
     public ApiGatewayDto getContractById(UUID uuid) throws ExecutionException, InterruptedException {
 
+        //        var apiGatewayDtoBuilder = ApiGatewayDto.builder();
+        //
+        //        // Получение компании
+        //        var resp  = upstreamAsyncClients.getCompanyByIdAsync(uuid)
+        //                .thenCompose(company -> {
+        //                    apiGatewayDtoBuilder.company(company);
+        //                    // Получение подрядчика
+        //                    return upstreamAsyncClients.getContractorByIdAsync(uuid);
+        //                })
+        //                .thenCompose(contractor -> {
+        //                    apiGatewayDtoBuilder.contractor(contractor);
+        //                    // Получение проекта
+        //                    return upstreamAsyncClients.getProjectByIdAsync(uuid);
+        //                })
+        //                .thenCompose(project -> {
+        //                    apiGatewayDtoBuilder.project(project);
+        //                    // Собираем ответ
+        //                    return CompletableFuture.supplyAsync(apiGatewayDtoBuilder::build);
+        //                });
+        //        return resp.get();
+
         // Получение компании
         CompletableFuture<CompanyDto> companyCf = upstreamAsyncClients.getCompanyByIdAsync(uuid);
 
