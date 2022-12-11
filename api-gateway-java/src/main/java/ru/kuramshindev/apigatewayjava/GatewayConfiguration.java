@@ -1,5 +1,6 @@
 package ru.kuramshindev.apigatewayjava;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +14,12 @@ import java.util.concurrent.Executor;
 @EnableAsync
 public class GatewayConfiguration {
 
+    @Value("${upstreams.base-uri}")
+    private String upstreamsBaseUri;
+
+    @Bean
     public RestTemplate getRestTemplate(RestTemplateBuilder restTemplateBuilder) {
-        return restTemplateBuilder.rootUri("http://localhost:19966/api/v1").build();
+        return restTemplateBuilder.rootUri(upstreamsBaseUri).build();
     }
 
     @Bean
