@@ -30,7 +30,7 @@ public class GatewayController {
     public ApiGatewayDto getContractById(@PathVariable("uuid") UUID uuid) throws Exception {
         long start = System.currentTimeMillis();
         ApiGatewayDto response = gatewayService.getContractById(uuid);
-        log.info("Elapsed time: " + (System.currentTimeMillis() - start));
+        log.info("Elapsed time: {}", System.currentTimeMillis() - start);
         return response;
     }
 }

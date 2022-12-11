@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
+import reactor.util.function.Tuple2;
 import ru.kuramshin.dto.apigateway.ApiGatewayDto;
 
 import java.util.UUID;
@@ -24,6 +25,9 @@ public class GatewayController {
     @RequestMapping(method = RequestMethod.GET, value = "/contracts/{uuid}")
     @ResponseStatus(HttpStatus.OK)
     public Mono<ApiGatewayDto> getContractById(@PathVariable("uuid") UUID uuid) {
-        return gatewayService.getContractById(uuid);
+        return gatewayService.getContractById(uuid)
+                .elapsed()
+                .doOnNext(tuple -> log.info("Elapsed time: {}", tuple.getT1()))
+                .map(Tuple2::getT2);
     }
 }

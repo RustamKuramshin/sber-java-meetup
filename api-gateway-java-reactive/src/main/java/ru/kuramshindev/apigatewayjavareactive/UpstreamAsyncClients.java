@@ -19,14 +19,23 @@ public class UpstreamAsyncClients {
 
     private final WebClient webClient;
 
+    /**
+     * Получение компании по uuid
+     */
     public Mono<CompanyDto> getCompanyByIdAsync(UUID uuid) {
         return webClient.get().uri("/companies/{uuid}", uuid).retrieve().bodyToMono(CompanyDto.class);
     }
 
+    /**
+     * Получение подрядчика по uuid
+     */
     public Mono<ContractorDto> getContractorByIdAsync(UUID uuid) {
         return webClient.get().uri("/contractors/{uuid}", uuid).retrieve().bodyToMono(ContractorDto.class);
     }
 
+    /**
+     * Получение проекта по uuid
+     */
     public Mono<ProjectDto> getProjectByIdAsync(UUID uuid) {
         return webClient.get().uri("/projects/{uuid}", uuid).retrieve().bodyToMono(ProjectDto.class);
     }
