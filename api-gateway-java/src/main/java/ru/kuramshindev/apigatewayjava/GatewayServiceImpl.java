@@ -22,12 +22,19 @@ public class GatewayServiceImpl implements GatewayService {
     @Override
     public ApiGatewayDto getContractById(UUID uuid) throws ExecutionException, InterruptedException {
 
+        // Получение компании
         CompletableFuture<CompanyDto> companyCf = upstreamClients.getCompanyById(uuid);
+
+        // Получение подрядчика
         CompletableFuture<ContractorDto> contractorCf = upstreamClients.getContractorById(uuid);
+
+        // Получение проекта
         CompletableFuture<ProjectDto> projectCf = upstreamClients.getProjectById(uuid);
 
+        // Ждем завершения всех запросов
         CompletableFuture.allOf(companyCf, contractorCf, projectCf).join();
 
+        // Собираем ответ
         return ApiGatewayDto.builder()
                 .company(companyCf.get())
                 .contractor(contractorCf.get())
