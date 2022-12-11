@@ -13,10 +13,16 @@ class GatewayServiceImpl(
 
     override suspend fun getContractById(uuid: UUID): ApiGatewayDto = coroutineScope {
 
+        // Получение компании
         val company = async { upstreamAsyncClients.getCompanyByIdAsync(uuid) }
+
+        // Получение подрядчика
         val contractor = async { upstreamAsyncClients.getContractorByIdAsync(uuid) }
+
+        // Получение проекта
         val project = async { upstreamAsyncClients.getProjectByIdAsync(uuid) }
 
+        // Собираем ответ
         ApiGatewayDto.builder()
             .company(company.await())
             .contractor(contractor.await())
