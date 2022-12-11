@@ -21,8 +21,6 @@ public class UpstreamAsyncClients {
 
     /**
      * Получение компании по uuid
-     * @param uuid
-     * @return
      */
     @Async
     public CompletableFuture<CompanyDto> getCompanyById(UUID uuid) {
@@ -34,8 +32,6 @@ public class UpstreamAsyncClients {
 
     /**
      * Получение подрядчика по uuid
-     * @param uuid
-     * @return
      */
     @Async
     public CompletableFuture<ContractorDto> getContractorById(UUID uuid) {
@@ -47,8 +43,6 @@ public class UpstreamAsyncClients {
 
     /**
      * Получение проекта по uuid
-     * @param uuid
-     * @return
      */
     @Async
     public CompletableFuture<ProjectDto> getProjectById(UUID uuid) {
