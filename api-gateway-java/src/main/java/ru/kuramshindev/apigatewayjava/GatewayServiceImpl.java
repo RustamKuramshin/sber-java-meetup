@@ -9,7 +9,6 @@ import ru.kuramshin.dto.contractors.ContractorDto;
 import ru.kuramshin.dto.projects.ProjectDto;
 
 import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @Slf4j
@@ -17,28 +16,25 @@ import java.util.concurrent.ExecutionException;
 @Service
 public class GatewayServiceImpl implements GatewayService {
 
-    private final UpstreamAsyncClients upstreamAsyncClients;
+    private final UpstreamClients upstreamClients;
 
     @Override
-    public ApiGatewayDto getContractById(UUID uuid) throws ExecutionException, InterruptedException {
+    public ApiGatewayDto getContractById(UUID uuid) {
 
         // Получение компании
-        CompletableFuture<CompanyDto> companyCf = upstreamAsyncClients.getCompanyByIdAsync(uuid);
+        CompanyDto company = upstreamClients.getCompanyById(uuid);
 
         // Получение подрядчика
-        CompletableFuture<ContractorDto> contractorCf = upstreamAsyncClients.getContractorByIdAsync(uuid);
+        ContractorDto contractor = upstreamClients.getContractorById(uuid);
 
         // Получение проекта
-        CompletableFuture<ProjectDto> projectCf = upstreamAsyncClients.getProjectByIdAsync(uuid);
-
-        // Ждем завершения всех запросов
-        CompletableFuture.allOf(companyCf, contractorCf, projectCf).join();
+        ProjectDto project = upstreamClients.getProjectById(uuid);
 
         // Собираем ответ
         return ApiGatewayDto.builder()
-                .company(companyCf.get())
-                .contractor(contractorCf.get())
-                .project(projectCf.get())
+                .company(company)
+                .contractor(contractor)
+                .project(project)
                 .build();
     }
 }
