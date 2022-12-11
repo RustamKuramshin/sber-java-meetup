@@ -2,7 +2,6 @@ package ru.kuramshindev.apigatewayjava;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import ru.kuramshin.dto.companies.CompanyDto;
@@ -10,7 +9,6 @@ import ru.kuramshin.dto.contractors.ContractorDto;
 import ru.kuramshin.dto.projects.ProjectDto;
 
 import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
 
 @Slf4j
 @RequiredArgsConstructor
