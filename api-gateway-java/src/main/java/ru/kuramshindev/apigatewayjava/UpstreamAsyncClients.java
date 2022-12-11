@@ -15,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 @Slf4j
 @RequiredArgsConstructor
 @Component
-public class UpstreamClients {
+public class UpstreamAsyncClients {
 
     private final RestTemplate restTemplate;
 

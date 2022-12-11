@@ -17,19 +17,19 @@ import java.util.concurrent.ExecutionException;
 @Service
 public class GatewayServiceImpl implements GatewayService {
 
-    private final UpstreamClients upstreamClients;
+    private final UpstreamAsyncClients upstreamAsyncClients;
 
     @Override
     public ApiGatewayDto getContractById(UUID uuid) throws ExecutionException, InterruptedException {
 
         // Получение компании
-        CompletableFuture<CompanyDto> companyCf = upstreamClients.getCompanyById(uuid);
+        CompletableFuture<CompanyDto> companyCf = upstreamAsyncClients.getCompanyById(uuid);
 
         // Получение подрядчика
-        CompletableFuture<ContractorDto> contractorCf = upstreamClients.getContractorById(uuid);
+        CompletableFuture<ContractorDto> contractorCf = upstreamAsyncClients.getContractorById(uuid);
 
         // Получение проекта
-        CompletableFuture<ProjectDto> projectCf = upstreamClients.getProjectById(uuid);
+        CompletableFuture<ProjectDto> projectCf = upstreamAsyncClients.getProjectById(uuid);
 
         // Ждем завершения всех запросов
         CompletableFuture.allOf(companyCf, contractorCf, projectCf).join();
