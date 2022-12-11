@@ -2,6 +2,7 @@ package ru.kuramshindev.apigatewayjava;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.kuramshin.dto.apigateway.ApiGatewayDto;
 import ru.kuramshin.dto.companies.CompanyDto;
@@ -14,7 +15,7 @@ import java.util.concurrent.ExecutionException;
 
 @Slf4j
 @RequiredArgsConstructor
-@Service
+@Service("gatewayServiceAsyncImpl")
 public class GatewayServiceAsyncImpl implements GatewayService {
 
     private final UpstreamAsyncClients upstreamAsyncClients;
