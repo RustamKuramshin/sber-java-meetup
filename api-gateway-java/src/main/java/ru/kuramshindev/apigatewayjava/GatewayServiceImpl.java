@@ -23,13 +23,13 @@ public class GatewayServiceImpl implements GatewayService {
     public ApiGatewayDto getContractById(UUID uuid) throws ExecutionException, InterruptedException {
 
         // Получение компании
-        CompletableFuture<CompanyDto> companyCf = upstreamAsyncClients.getCompanyById(uuid);
+        CompletableFuture<CompanyDto> companyCf = upstreamAsyncClients.getCompanyByIdAsync(uuid);
 
         // Получение подрядчика
-        CompletableFuture<ContractorDto> contractorCf = upstreamAsyncClients.getContractorById(uuid);
+        CompletableFuture<ContractorDto> contractorCf = upstreamAsyncClients.getContractorByIdAsync(uuid);
 
         // Получение проекта
-        CompletableFuture<ProjectDto> projectCf = upstreamAsyncClients.getProjectById(uuid);
+        CompletableFuture<ProjectDto> projectCf = upstreamAsyncClients.getProjectByIdAsync(uuid);
 
         // Ждем завершения всех запросов
         CompletableFuture.allOf(companyCf, contractorCf, projectCf).join();
