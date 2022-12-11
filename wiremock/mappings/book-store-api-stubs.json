@@ -1,0 +1,74 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/books"
+      },
+      "response": {
+        "status": 200,
+        "body": "[\n  {\n    \"id\": 671238,\n    \"title\": \"Java. Руководство для начинающих\",\n    \"author\": \"Герберт Шилдт\",\n    \"yearOfPublishing\": \"2018-01-01\",\n    \"genre\": \"Программирование\",\n    \"pages\": 816,\n    \"hasEpubVersion\": true\n  },\n  {\n    \"id\": 695676,\n    \"title\": \"Java. Библиотека профессионала. Том 1. Основы\",\n    \"author\": \"Кей Хорстманн\",\n    \"yearOfPublishing\": \"2019-01-01\",\n    \"genre\": \"Программирование\",\n    \"pages\": 864,\n    \"hasEpubVersion\": false\n  },\n  {\n    \"id\": 464095,\n    \"title\": \"Философия Java\",\n    \"author\": \"Брюс Эккель\",\n    \"yearOfPublishing\": \"2019-01-01\",\n    \"genre\": \"Программирование\",\n    \"pages\": 1133,\n    \"hasEpubVersion\": true\n  }\n]",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/books/671238"
+      },
+      "response": {
+        "status": 200,
+        "body": "{\n    \"id\": 671238,\n    \"title\": \"Java. Руководство для начинающих\",\n    \"author\": \"Герберт Шилдт\",\n    \"yearOfPublishing\": \"2018-01-01\",\n    \"genre\": \"Программирование\",\n    \"pages\": 816,\n    \"hasEpubVersion\": true\n  }",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "/books"
+      },
+      "response": {
+        "status": 201,
+        "body": "{\n    \"id\": 464095,\n    \"title\": \"Java Concurrency на практике\",\n    \"author\": \"Гетц\",\n    \"yearOfPublishing\": \"2020-01-01\",\n    \"genre\": \"Программирование\",\n    \"pages\": 464,\n    \"hasEpubVersion\": true\n  }",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "url": "/books/464095"
+      },
+      "response": {
+        "status": 200,
+        "body": "{\n    \"id\": 464095,\n    \"title\": \"Java Concurrency на практике\",\n    \"author\": \"Гетц\",\n    \"yearOfPublishing\": \"2020-01-01\",\n    \"genre\": \"Программирование\",\n    \"pages\": 500,\n    \"hasEpubVersion\": true\n  }",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "/books/695676"
+      },
+      "response": {
+        "status": 204
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/healthz/ready"
+      },
+      "response": {
+        "status": 200
+      }
+    }
+  ]
+}
