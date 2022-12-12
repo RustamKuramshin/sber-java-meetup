@@ -10,7 +10,7 @@ import ru.kuramshin.dto.projects.ProjectDto;
 
 import java.util.UUID;
 
-@FeignClient(url = "${upstreams.base-uri}", path = "/api/v1")
+@FeignClient(name = "upstreams", url = "${upstreams.base-uri}")
 public interface UpstreamClients {
 
     @RequestMapping(method = RequestMethod.GET, value = "/companies/{uuid}")
